@@ -4,102 +4,155 @@
     <meta charset="UTF-8">
     <title>Farhan Rabbi | Personal Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --transition: all 0.3s ease;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
-            background: #ffffff;
-            padding: 60px 20px 20px 20px;
+            background: var(--card-bg);
+            padding: 80px 20px 40px 20px;
             text-align: center;
+            animation: fadeInDown 0.8s ease;
         }
 
         header h1 {
             margin: 0;
-            font-size: 32px;
-            color: #000;
-            font-weight: bold;
+            font-size: 36px;
+            letter-spacing: -1px;
+            font-weight: 600;
         }
 
         header p {
             margin-top: 10px;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         section {
-            padding: 20px;
-            max-width: 600px;
+            padding: 40px 20px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
         .card {
-            background: white;
+            background: var(--card-bg);
             margin-bottom: 30px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: center; /* সব হেডিং এবং কন্টেন্ট সেন্টারে থাকবে */
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
         .card h2 {
             font-size: 20px;
-            color: #000;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 600;
-            display: block;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Decorative line under headings */
+        .card h2::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .card p {
             font-size: 15px;
-            color: #444;
-            margin-bottom: 10px;
-            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
         }
 
-        /* কন্টাক্ট সেকশনটি মাঝখানে রাখার ম্যাজিক */
         .contact-wrapper {
-            display: inline-block; /* কন্টেইনারটিকে কন্টেন্টের সমান ছোট করবে */
-            text-align: left;      /* ভেতরের লেখাগুলো এক লাইনে বাম থেকে শুরু হবে */
+            display: inline-block;
+            text-align: left;
             margin-top: 10px;
         }
 
         .contact-item {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .contact-item a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             gap: 15px;
             font-size: 15px;
+            transition: var(--transition);
         }
 
-        /* আইকনগুলো কালো */
+        .contact-item a:hover {
+            opacity: 0.6;
+            transform: translateX(5px);
+        }
+
         .contact-item i {
             font-size: 18px;
-            width: 20px;
-            color: #000 !important;
+            width: 24px;
+            color: var(--accent);
             text-align: center;
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #999;
-            font-size: 12px;
-            background: #ffffff;
+            padding: 60px 20px;
+            color: #bbb;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* Simple Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 60px 20px 30px; }
+            .card { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -114,11 +167,13 @@
 <section>
     <div class="card">
         <h2>About Me</h2>
-        <p>I am Farhan, someone who values a simple and peaceful life.
-I love exploring new places and experiencing new things.
-My family is my greatest support and inspiration.
-I am dedicated, honest, and passionate about growth.
-I believe a simple life and a positive mindset lead to true happiness.
+        <p>
+            I am 26 years old and currently working at <strong>Etihad Airways</strong> in the Finance team. 
+            I value silence, simplicity, and a peaceful life.
+        </p>
+        <p>
+            I prefer black and white designs, and I believe in living a simple but meaningful life.
+        </p>
     </div>
 
     <div class="card">
@@ -166,7 +221,7 @@ I believe a simple life and a positive mindset lead to true happiness.
 </section>
 
 <footer>
-    © 2026 Farhan Rabbi | All Rights Reserved
+    © 2026 FARHAN RABBI | ALL RIGHTS RESERVED
 </footer>
 
 </body>
