@@ -3,82 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalist Quote Interface</title>
+    <title>Quote Interface with Back Button</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9f9f9; /* হালকা অফ-হোয়াইট ব্যাকগ্রাউন্ড */
-        }
-
-        /* মানুষের অবয়ব এবং লাইনের জন্য কাস্টম ড্রয়িং */
-        .illustration-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .line {
-            position: absolute;
-            bottom: 0;
-            width: 2px;
-            height: 200px;
-            background-color: #333;
-            transform: rotate(-20deg); /* বাঁকা লাইনটির জন্য */
-            transform-origin: top;
-        }
-
-        .person-icon {
-            position: absolute;
-            top: 40px;
-            width: 40px;
-            height: 80px;
-            border: 2px solid #333;
-            border-radius: 20px 20px 5px 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .person-head {
-            width: 15px;
-            height: 15px;
-            border: 2px solid #333;
-            border-radius: 50%;
-            margin-top: -18px;
-            background: #f9f9f9;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body class="flex flex-col items-center justify-center min-h-screen relative">
 
-    <div class="max-w-md w-full text-center space-y-4">
-        
-        <div class="mb-20">
-            <h1 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                Your next move matters
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-700 mt-2 font-light">
-                more than your last mistake
-            </p>
+    <div class="absolute top-10 left-6">
+        <button onclick="window.history.back()" class="flex items-center text-gray-600 hover:text-black transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous
+        </button>
+    </div>
+
+    <div class="max-w-md w-full text-center px-6">
+        <div class="mb-16">
+            <h1 class="text-3xl font-bold text-black mb-2">Your next move matters</h1>
+            <p class="text-xl text-gray-800">more than your last mistake</p>
         </div>
 
-        <div class="flex justify-center pt-10">
-            <svg width="200" height="400" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 130C105.523 130 110 125.523 110 120C110 114.477 105.523 110 100 110C94.4772 110 90 114.477 90 120C90 125.523 94.4772 130 100 130Z" stroke="black" stroke-width="1.5"/>
-                <path d="M90 135C85 135 82 140 82 150V180M110 135C115 135 118 140 118 150V180M95 180V220M105 180V215" stroke="black" stroke-width="1.5"/>
-                <path d="M90 135H110V180H90V135Z" stroke="black" stroke-width="1.5" fill="white"/>
-                
-                <line x1="102" y1="225" x2="180" y2="500" stroke="black" stroke-width="1.5" />
+        <div class="flex justify-center">
+            <svg width="120" height="300" viewBox="0 0 100 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="30" r="10" stroke="black" stroke-width="1.5"/>
+                <path d="M40 45C35 45 32 50 32 60V90M60 45C65 45 68 50 68 60V90M45 90V130M55 90V125" stroke="black" stroke-width="1.5"/>
+                <rect x="40" y="45" width="20" height="45" stroke="black" stroke-width="1.5" fill="white"/>
+                <line x1="52" y1="135" x2="100" y2="250" stroke="black" stroke-width="1.5" />
             </svg>
         </div>
-
     </div>
 
 </body>
 </html>
-
