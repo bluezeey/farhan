@@ -19,32 +19,58 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; line-height: 1.8; }
 
+        /* Header & Profile Image Section */
         header {
             background: var(--card-bg);
-            padding: 80px 20px 40px 20px;
+            padding: 60px 20px 40px 20px;
             text-align: center;
             border-bottom: 1px solid #f0f0f0;
         }
-        header h1 { margin: 0; font-size: 36px; font-weight: 600; }
-        header p { color: var(--text-secondary); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
 
+        .profile-img {
+            width: 140px; 
+            height: 140px;
+            border-radius: 50%; /* ছবি গোল করার জন্য */
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        header h1 { margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px; }
+        header p { color: var(--text-secondary); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+
+        /* Navigation */
         nav {
             position: sticky; top: 0; background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px); z-index: 1000; display: flex;
             justify-content: center; padding: 15px 0; border-bottom: 1px solid #eee;
         }
         nav a { text-decoration: none; color: var(--text-secondary); font-size: 11px; font-weight: 600; text-transform: uppercase; margin: 0 15px; }
+        nav a:hover { color: var(--accent); }
 
         .container { max-width: 650px; margin: 0 auto; padding: 20px; }
-        section { background: var(--card-bg); padding: 50px 35px; margin: 30px 0; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.02); border: 1px solid #f0f0f0; }
+        
+        section { 
+            background: var(--card-bg); 
+            padding: 45px 35px; 
+            margin: 30px 0; 
+            border-radius: 20px; 
+            box-shadow: 0 5px 25px rgba(0,0,0,0.02); 
+            border: 1px solid #f0f0f0; 
+        }
         
         h2 { font-size: 22px; margin-bottom: 25px; position: relative; }
         h2::after { content: ''; width: 40px; height: 2px; background: var(--accent); position: absolute; bottom: -8px; left: 0; }
 
-        /* Contact Grid Updates */
+        /* Contact Grid */
         .contact-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             gap: 15px; 
         }
         .contact-item a { 
@@ -52,27 +78,32 @@
             color: var(--text-main); 
             display: flex; 
             align-items: center; 
-            gap: 15px; 
-            padding: 18px; 
+            gap: 12px; 
+            padding: 16px; 
             border: 1px solid #eee; 
             border-radius: 12px; 
-            transition: all 0.3s ease;
-            font-weight: 500;
+            transition: 0.3s;
+            font-size: 14px;
         }
         .contact-item a:hover { 
             background: var(--accent); 
             color: #fff; 
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .contact-item i { font-size: 20px; width: 25px; text-align: center; }
 
         footer { text-align: center; padding: 60px; color: #bbb; font-size: 11px; }
+
+        @media (max-width: 480px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            section { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
+    <img src="https://scontent.fdxb3-4.fna.fbcdn.net/v/t39.30808-6/638036669_2295114424233551_8492107061907103132_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=dIdCFb_yCRAQ7kNvwGMgq-S&_nc_oc=AdlHwnCjjOtMYllmfV3akQ5c9BD4dEwftuCm9CmMbm7skNcEGtzppb9lbNxdfscQBs8&_nc_zt=23&_nc_ht=scontent.fdxb3-4.fna&_nc_gid=qCh0saw--hMfkdote2O0Vw&oh=00_Afvn4g-Vsy3zF9TucHsY4RQEwgD2rcATkF6pcacnWUNm-Q&oe=69A7411C" alt="Farhan Rabbi" class="profile-img">
+    
     <h1>Farhan Rabbi</h1>
     <p>Simplicity | Purpose | Dreams</p>
 </header>
@@ -85,7 +116,7 @@
 <div class="container">
     <section id="about">
         <h2>About Me</h2>
-        <p>I am Farhan, someone who values a simple and peaceful life. I love exploring new places and building meaningful connections through digital spaces.</p>
+        <p>I am Farhan, someone who values a simple and peaceful life. I love exploring new places and experiencing new things. My family is my greatest support and inspiration. I believe a simple life and a positive mindset lead to true happiness.</p>
     </section>
 
     <section id="contact">
@@ -93,22 +124,19 @@
         <div class="contact-grid">
             <div class="contact-item">
                 <a href="https://chithi.me/Farhan_Rabbi" target="_blank">
-                    <i class="fas fa-paper-plane"></i> Chithi.me
+                    <i class="fas fa-paper-plane"></i> chithi.me/Farhan_Rabbi
                 </a>
             </div>
-
             <div class="contact-item">
                 <a href="mailto:farhanrabbi070@gmail.com">
-                    <i class="fas fa-envelope"></i> Email
+                    <i class="fas fa-envelope"></i> Email Me
                 </a>
             </div>
-
             <div class="contact-item">
                 <a href="https://wa.me/8801745673588" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
-
             <div class="contact-item">
                 <a href="https://www.facebook.com/@bluezeey/" target="_blank">
                     <i class="fab fa-facebook"></i> Facebook
