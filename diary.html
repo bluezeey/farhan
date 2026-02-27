@@ -15,7 +15,7 @@
             overflow: hidden;
         }
 
-        /* সিগনেচার স্টাইল: কালো, ছোট, হিজিবিজি এবং মিনিমালিস্ট */
+        /* সিগনেচার স্টাইল */
         .sig-container {
             position: absolute;
             bottom: -20px;
@@ -28,14 +28,13 @@
         .signature-text {
             font-family: 'Mr De Haviland', cursive;
             color: #000000;
-            font-size: 2.2rem; /* ছোট সাইজ */
+            font-size: 2.2rem;
             line-height: 1;
-            transform: rotate(-8deg) skewX(-10deg); /* এলোমেলো দেখানোর জন্য বাঁকানো */
+            transform: rotate(-8deg) skewX(-10deg);
             user-select: none;
             opacity: 0.9;
         }
 
-        /* সিগনেচারের নিচে হালকা একটা হিজিবিজি টান (আকিঝুঁকি) */
         .underline-scribble {
             width: 50px;
             height: 2px;
@@ -46,13 +45,17 @@
             border-radius: 50%;
         }
 
-        .back-btn { transition: all 0.3s ease; }
+        .back-btn { 
+            transition: all 0.3s ease; 
+            position: relative;
+            z-index: 50;
+        }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
 
     <div class="absolute top-10 left-6">
-        <a href="#" class="back-btn flex items-center text-gray-400 font-medium text-lg no-underline hover:text-black">
+        <a href="javascript:history.back()" class="back-btn flex items-center text-gray-400 font-medium text-lg no-underline hover:text-black">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
