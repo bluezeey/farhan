@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farhan's Diary | My Musings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f1ea;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .book-page {
+            width: 90%;
+            max-width: 550px;
+            background: #fff;
+            padding: 60px 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 15px solid #1a1a1a;
+            border-radius: 4px;
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            text-decoration: none;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* Multi-page System */
+        .page-content { display: none; text-align: center; animation: fadeIn 0.6s ease; }
+        .page-content.active { display: block; }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: #1a1a1a; margin-bottom: 25px; }
+        .text-body { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; line-height: 1.8; color: #333; white-space: pre-line; }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .btn-nav {
+            background: none; border: 1px solid #ddd; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: 0.3s;
+        }
+        .btn-nav:hover { background: #000; color: #fff; }
+        .page-indicator { font-size: 12px; color: #aaa; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @media (max-width: 480px) {
+            .book-page { padding: 50px 25px; }
+            h1 { font-size: 24px; }
+            .text-body { font-size: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="book-page">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Home</a>
+
+    <div id="content-area">
+        <div class="page-content active">
+            <h1>প্রথম ভাবনা</h1>
+            <div class="text-body">
+                জীবন অনেক ছোট, 
+                তাই প্রতিটি মুহূর্তকে হাসিমুখে গ্রহণ করা উচিত। 
+                সরলতাই জীবনের শ্রেষ্ঠ সৌন্দর্য।
+            </div>
+        </div>
+
+        <div class="page-content">
+            <h1>ভ্রমণের নেশা</h1>
+            <div class="text-body">
+                নতুন জায়গায় হারিয়ে যাওয়ার মাঝে 
+                এক অদ্ভুত আনন্দ আছে। 
+                পাহাড় হোক বা সমুদ্র, প্রকৃতি সবসময়ই শান্তি দেয়।
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-controls">
+        <button class="btn-nav" onclick="changePage(-1)"><i class="fas fa-chevron-left"></i> Prev</button>
+        <span class="page-indicator" id="pageNum">Page 1 of 2</span>
+        <button class="btn-nav" onclick="changePage(1)">Next <i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page-content');
+    const indicator = document.getElementById('pageNum');
+
+    function changePage(step) {
+        if (currentPage + step >= 0 && currentPage + step < pages.length) {
+            pages[currentPage].classList.remove('active');
+            currentPage += step;
+            pages[currentPage].classList.add('active');
+            indicator.innerText = `Page ${currentPage + 1} of ${pages.length}`;
+        }
+    }
+</script>
+
+</body>
+</html>
