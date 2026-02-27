@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote Interface with Back Button</title>
+    <title>Quote Interface | Diary</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
@@ -11,17 +11,25 @@
             font-family: 'Inter', sans-serif; 
             background-color: #ffffff; 
         }
+        /* বাটনটি যাতে সুন্দরভাবে কাজ করে এবং মোবাইলে চাপ দিতে সুবিধা হয় */
+        .back-btn {
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateX(-5px);
+            color: #000;
+        }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen relative">
 
     <div class="absolute top-10 left-6">
-        <button onclick="window.history.back()" class="flex items-center text-gray-600 hover:text-black transition-colors font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="index.html" class="back-btn flex items-center text-gray-500 font-medium text-lg no-underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             Previous
-        </button>
+        </a>
     </div>
 
     <div class="max-w-md w-full text-center px-6">
