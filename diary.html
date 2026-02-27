@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <title>Farhan's Diary | My Musings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.cdnfonts.com/css/solaimanlipi" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         body {
             background-color: #f4f1ea;
-            font-family: 'Poppins', sans-serif;
+            /* SolaimanLipi এখানে ডিফল্ট হিসেবে সেট করা হয়েছে */
+            font-family: 'SolaimanLipi', 'Poppins', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -41,12 +45,26 @@
             font-size: 13px;
         }
 
-        /* Multi-page System */
         .page-content { display: none; text-align: center; animation: fadeIn 0.6s ease; }
         .page-content.active { display: block; }
 
-        h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: #1a1a1a; margin-bottom: 25px; }
-        .text-body { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; line-height: 1.8; color: #333; white-space: pre-line; }
+        /* হেডলাইনের জন্য সোলমান লিপি এবং বোল্ড স্টাইল */
+        h1 { 
+            font-family: 'SolaimanLipi', serif; 
+            font-size: 32px; 
+            color: #1a1a1a; 
+            margin-bottom: 25px; 
+            font-weight: bold;
+        }
+
+        /* বডি টেক্সটের জন্য স্টাইল */
+        .text-body { 
+            font-family: 'SolaimanLipi', sans-serif; 
+            font-size: 20px; 
+            line-height: 1.6; 
+            color: #333; 
+            white-space: pre-line; 
+        }
 
         .nav-controls {
             display: flex;
@@ -67,8 +85,8 @@
 
         @media (max-width: 480px) {
             .book-page { padding: 50px 25px; }
-            h1 { font-size: 24px; }
-            .text-body { font-size: 17px; }
+            h1 { font-size: 28px; }
+            .text-body { font-size: 18px; }
         }
     </style>
 </head>
@@ -81,10 +99,10 @@
         <div class="page-content active">
             <h1>ভালো লাগে</h1>
             <div class="text-body">
-            ভালো লাগে গান। নেইলপালিস আর ফর্সা আঙুল।
+                ভালো লাগে গান। নেইলপালিস আর ফর্সা আঙুল।
                 আমি জানি একদিন আমি থাকব না। অনুপস্থিত হয়ে যাবো।
                 আমি জানি জুলাইয়ের লাশ গুলো ভূত হয়ে যায় নভেম্বর এলে!
-                মৃত্যুর দুশো বছর পরেও! তাদের জানালার পর্দা বোধহয় খোলা থাকবে!
+                Deaths দুশো বছর পরেও! তাদের জানালার পর্দা বোধহয় খোলা থাকবে!
             </div>
         </div>
 
