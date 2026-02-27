@@ -3,33 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote Interface | Diary</title>
+    <title>Minimalist Signature | Farhan</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap" rel="stylesheet">
     <style>
-        /* হাতের লেখার মতো ফন্ট ইম্পোর্ট করা হয়েছে */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Dancing+Script:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: #ffffff; 
-        }
-        
-        .back-btn {
-            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        /* হাতের লেখার স্টাইল */
-        .handwritten-name {
-            font-family: 'Dancing Script', cursive;
-            color: #d63031; /* একটু লালচে রঙ যাতে হাতের লেখার মতো ফুটে ওঠে */
-            transform: rotate(-5deg); /* হালকা বাঁকানো যাতে রিয়েলিস্টিক লাগে */
+        /* সিগনেচার স্টাইল: কালো, ছোট, হিজিবিজি এবং মিনিমালিস্ট */
+        .sig-container {
+            position: absolute;
+            bottom: -20px;
+            right: -65px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .signature-text {
+            font-family: 'Mr De Haviland', cursive;
+            color: #000000;
+            font-size: 2.2rem; /* ছোট সাইজ */
+            line-height: 1;
+            transform: rotate(-8deg) skewX(-10deg); /* এলোমেলো দেখানোর জন্য বাঁকানো */
+            user-select: none;
+            opacity: 0.9;
+        }
+
+        /* সিগনেচারের নিচে হালকা একটা হিজিবিজি টান (আকিঝুঁকি) */
+        .underline-scribble {
+            width: 50px;
+            height: 2px;
+            background: black;
+            margin-top: -10px;
+            transform: rotate(2deg) skewX(20deg);
+            opacity: 0.6;
+            border-radius: 50%;
+        }
+
+        .back-btn { transition: all 0.3s ease; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen relative">
+<body class="flex flex-col items-center justify-center min-h-screen">
 
     <div class="absolute top-10 left-6">
-        <a href="index.html" class="back-btn flex items-center text-gray-500 font-medium text-lg no-underline">
+        <a href="#" class="back-btn flex items-center text-gray-400 font-medium text-lg no-underline hover:text-black">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -38,21 +61,23 @@
     </div>
 
     <div class="max-w-md w-full text-center px-6">
-        <div class="mb-16">
-            <h1 class="text-3xl font-bold text-black mb-2">Your next move matters</h1>
-            <p class="text-xl text-gray-800">more than your last mistake</p>
+        <div class="mb-20">
+            <h1 class="text-3xl font-bold text-black mb-1">Your next move matters</h1>
+            <p class="text-lg text-gray-500 italic">more than your last mistake</p>
         </div>
 
-        <div class="flex flex-col items-center">
-            <svg width="120" height="250" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="30" r="10" stroke="black" stroke-width="1.5"/>
-                <path d="M40 45C35 45 32 50 32 60V90M60 45C65 45 68 50 68 60V90M45 90V130M55 90V125" stroke="black" stroke-width="1.5"/>
-                <rect x="40" y="45" width="20" height="45" stroke="black" stroke-width="1.5" fill="white"/>
-                <line x1="52" y1="135" x2="100" y2="220" stroke="black" stroke-width="1.5" />
+        <div class="relative inline-block">
+            <svg width="120" height="240" viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="30" r="10" stroke="black" stroke-width="1.2"/>
+                <path d="M40 45C35 45 32 50 32 60V90M60 45C65 45 68 50 68 60V90M45 90V130M55 90V125" stroke="black" stroke-width="1.2"/>
+                <rect x="40" y="45" width="20" height="45" stroke="black" stroke-width="1.2" fill="white"/>
+                
+                <line x1="52" y1="135" x2="85" y2="190" stroke="black" stroke-width="1"/>
             </svg>
 
-            <div class="mt-[-40px] ml-28">
-                <span class="handwritten-name text-4xl">ফারহান</span>
+            <div class="sig-container">
+                <span class="signature-text">Farhan</span>
+                <div class="underline-scribble"></div>
             </div>
         </div>
     </div>
