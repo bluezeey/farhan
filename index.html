@@ -13,9 +13,9 @@
             --bg-color: #fcfcfc;
             --card-bg: #ffffff;
             --text-main: #1a1a1a;
-            --text-secondary: #666666;
+            --text-secondary: #555555;
             --accent: #000000;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
@@ -23,140 +23,116 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 0;
-            line-height: 1.7;
+            overflow-x: hidden;
+            line-height: 1.8;
         }
 
         header {
             background: var(--card-bg);
-            padding: 80px 20px 40px 20px;
+            padding: 60px 20px 30px 20px;
             text-align: center;
-            animation: fadeInDown 0.8s ease;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            letter-spacing: -1px;
-            font-weight: 600;
-        }
-
-        header p {
-            margin-top: 10px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        header h1 { margin: 0; font-size: 32px; font-weight: 600; }
+        header p { color: var(--text-secondary); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
 
         section {
-            padding: 40px 20px;
-            max-width: 650px;
-            margin: 0 auto;
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+            min-height: 450px;
+            padding: 20px;
         }
 
-        .card {
+        /* পেজ বা কার্ড স্টাইল */
+        .page {
             background: var(--card-bg);
-            margin-bottom: 30px;
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #f0f0f0;
+            position: absolute;
+            width: 100%;
+            box-sizing: border-box;
             transition: var(--transition);
-            animation: fadeInUp 1s ease;
+            opacity: 0;
+            transform: translateX(50px);
+            visibility: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        .card h2 {
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-weight: 600;
+        /* সক্রিয় পেজ */
+        .page.active {
+            opacity: 1;
+            transform: translateX(0);
+            visibility: visible;
             position: relative;
-            display: inline-block;
         }
 
-        /* Decorative line under headings */
-        .card h2::after {
+        /* টেক্সট এলাইনমেন্ট ঠিক করা */
+        .page h2 {
+            font-size: 22px;
+            text-align: left;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .page h2::after {
             content: '';
-            width: 30px;
+            width: 40px;
             height: 2px;
             background: var(--accent);
             position: absolute;
             bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
         }
 
-        .card p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
+        .content-text {
+            text-align: left; /* বাম দিক থেকে এলাইনমেন্ট */
+            white-space: pre-line;
+            margin-bottom: 60px;
         }
 
-        .contact-wrapper {
-            display: inline-block;
-            text-align: left;
-            margin-top: 10px;
+        /* নেভিগেশন বাটন (বইয়ের পাতার মতো) */
+        .nav-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .contact-item {
-            margin-bottom: 18px;
-        }
-
-        .contact-item a {
-            text-decoration: none;
-            color: var(--text-main);
+        .btn-next {
+            background: none;
+            border: 1px solid #eee;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Poppins';
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 15px;
+            gap: 10px;
             transition: var(--transition);
         }
 
-        .contact-item a:hover {
-            opacity: 0.6;
-            transform: translateX(5px);
+        .btn-next:hover {
+            background: #000;
+            color: #fff;
+            transform: scale(1.05);
         }
 
-        .contact-item i {
-            font-size: 18px;
-            width: 24px;
-            color: var(--accent);
-            text-align: center;
+        /* কন্টাক্ট লিস্ট স্টাইল */
+        .contact-item { margin-bottom: 15px; text-align: left; }
+        .contact-item a { 
+            text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; 
         }
 
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: #bbb;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        /* Simple Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        footer { text-align: center; padding: 40px; color: #ccc; font-size: 11px; }
 
         @media (max-width: 480px) {
-            header { padding: 60px 20px 30px; }
-            .card { padding: 30px 20px; }
+            .page { padding: 30px 20px; }
         }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -164,49 +140,45 @@
     <p>Simplicity | Purpose | Dreams</p>
 </header>
 
-<section>
-    <div class="card">
+<section id="book-container">
+    <div class="page active" id="page1">
         <h2>About Me</h2>
-        <p>I am Farhan, someone who values a simple and peaceful life.
-I love exploring new places and experiencing new things.
-My family is my greatest support and inspiration.
-I am dedicated, honest, and passionate about growth.
-I believe a simple life and a positive mindset lead to true happiness.
-        </p>
+        <div class="content-text">
+            I am Farhan, someone who values a simple and peaceful life.
+            I love exploring new places and experiencing new things.
+            My family is my greatest support and inspiration.
+            I am dedicated, honest, and passionate about growth.
+            I believe a simple life and a positive mindset lead to true happiness.
+        </div>
         
+        <div class="nav-buttons">
+            <button class="btn-next" onclick="showPage('page2')">
+                Next Page <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
-    
 
-    <div class="card">
+    <div class="page" id="page2">
         <h2>Contact</h2>
-        <div class="contact-wrapper">
+        <div class="content-text">
             <div class="contact-item">
-                <a href="mailto:farhanrabbi070@gmail.com">
-                    <i class="fas fa-envelope"></i> 
-                    <span>farhanrabbi070@gmail.com</span>
-                </a>
+                <a href="mailto:farhanrabbi070@gmail.com"><i class="fas fa-envelope"></i> farhanrabbi070@gmail.com</a>
             </div>
+            <div class="contact-item">
+                <a href="https://wa.me/8801745673588"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.facebook.com/@bluezeey/"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+        </div>
 
-            <div class="contact-item">
-                <a href="https://wa.me/8801745673588" target="_blank">
-                    <i class="fab fa-whatsapp"></i> 
-                    <span>WhatsApp</span>
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <a href="https://www.facebook.com/@bluezeey/?mibextid=ZbWKwL" target="_blank">
-                    <i class="fab fa-facebook"></i> 
-                    <span>Facebook</span>
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <a href="https://chithi.me/Farhan_Rabbi" target="_blank">
-                    <i class="fas fa-paper-plane"></i> 
-                    <span>Chithi</span>
-                </a>
-            </div>
+        <div class="nav-buttons">
+            <button class="btn-next" onclick="showPage('page1')" style="margin-right: auto;">
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <button class="btn-next">
+                Page 3 <i class="fas fa-lock"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -214,6 +186,19 @@ I believe a simple life and a positive mindset lead to true happiness.
 <footer>
     © 2026 FARHAN RABBI | ALL RIGHTS RESERVED
 </footer>
+
+<script>
+    function showPage(pageId) {
+        // সব পেজ থেকে active ক্লাস রিমুভ করা
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        // কাঙ্ক্ষিত পেজে active ক্লাস অ্যাড করা
+        document.getElementById(pageId).classList.add('active');
+        // পেজের একদম উপরে স্ক্রল করা (মোবাইলের জন্য ভালো)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
