@@ -19,7 +19,6 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; line-height: 1.8; }
 
-        /* Header & Profile Image Section */
         header {
             background: var(--card-bg);
             padding: 60px 20px 40px 20px;
@@ -30,7 +29,7 @@
         .profile-img {
             width: 140px; 
             height: 140px;
-            border-radius: 50%; /* ছবি গোল করার জন্য */
+            border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent);
             padding: 5px;
@@ -44,7 +43,6 @@
         header h1 { margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px; }
         header p { color: var(--text-secondary); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
 
-        /* Navigation */
         nav {
             position: sticky; top: 0; background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px); z-index: 1000; display: flex;
@@ -67,7 +65,6 @@
         h2 { font-size: 22px; margin-bottom: 25px; position: relative; }
         h2::after { content: ''; width: 40px; height: 2px; background: var(--accent); position: absolute; bottom: -8px; left: 0; }
 
-        /* Contact Grid */
         .contact-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -91,15 +88,41 @@
             transform: translateY(-3px);
         }
 
+        /* Floating Icon Style */
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: #fff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 2000;
+            transition: 0.3s;
+        }
+        .floating-action:hover { transform: scale(1.1); }
+        .floating-action i { font-size: 20px; }
+
         footer { text-align: center; padding: 60px; color: #bbb; font-size: 11px; }
 
         @media (max-width: 480px) {
             .contact-grid { grid-template-columns: 1fr; }
             section { padding: 30px 20px; }
+            .floating-action { bottom: 20px; right: 20px; width: 50px; height: 50px; }
         }
     </style>
 </head>
 <body>
+
+<a href="diary.html" class="floating-action" title="My Musings">
+    <i class="fas fa-pen-nib"></i>
+</a>
 
 <header>
     <img src="https://scontent.fdxb3-4.fna.fbcdn.net/v/t39.30808-6/638036669_2295114424233551_8492107061907103132_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=dIdCFb_yCRAQ7kNvwGMgq-S&_nc_oc=AdlHwnCjjOtMYllmfV3akQ5c9BD4dEwftuCm9CmMbm7skNcEGtzppb9lbNxdfscQBs8&_nc_zt=23&_nc_ht=scontent.fdxb3-4.fna&_nc_gid=qCh0saw--hMfkdote2O0Vw&oh=00_Afvn4g-Vsy3zF9TucHsY4RQEwgD2rcATkF6pcacnWUNm-Q&oe=69A7411C" alt="Farhan Rabbi" class="profile-img">
@@ -110,6 +133,7 @@
 
 <nav>
     <a href="#about">About</a>
+    <a href="diary.html">Musings</a>
     <a href="#contact">Contact</a>
 </nav>
 
